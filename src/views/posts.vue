@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { getProfilePicture } from '../utils'
 import type { PostInterface } from '@/types';
 import Days from 'dayjs'
 
@@ -49,27 +48,27 @@ onMounted(async () => {
                             <Avatar>
                                 <AvatarImage src={getProfilePicture(post.creator?.image)} width={5} height={5}
                                     alt="Avatar"></AvatarImage>
-                                {{post.creator?.email}}
+                                {{ post.creator?.email }}
                                 <AvatarFallback>
-                                    {post.creator?.first_name[0]}
+                                    {{ post.creator?.first_name[0] }}
                                 </AvatarFallback>
                             </Avatar>
                             <div class="font-semibold">
-                                {{post.creator?.first_name}} {{post.creator?.last_name}}
+                                {{ post.creator?.first_name }} {{ post.creator?.last_name }}
                             </div>
                         </div>
                     </td>
                     <td class="font-semibold">
-                        <div class="max-w-96 overflow-auto">{{post.title}}</div>
+                        <div class="max-w-96 overflow-auto">{{ post.title }}</div>
                     </td>
                     <td>
-                        {{post.body.replace(/<.*?>/g, "").length > 5
+                        {{ post.body.replace(/<.*?>/g, "").length > 5
                             ? post.body.replace(/<.*?>/g, "").substring(0, 70) + "..."
-                                : post.body.replace(/<.*?>/g, "")}}
+                            : post.body.replace(/<.*?>/g, "") }}
                     </td>
 
                     <td>
-                        {{Days(post.created_at).format("DD MMM YYYY")}}
+                        {{ Days(post.created_at).format("DD MMM YYYY") }}
                     </td>
                 </tr>
             </tbody>
