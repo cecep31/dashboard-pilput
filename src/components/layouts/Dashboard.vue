@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
+import Topbar from "../header/topbar.vue";
 </script>
 
 <template>
@@ -89,7 +90,7 @@ import { RouterLink } from 'vue-router'
           </div>
         </div>
         <div class="flex flex-col relative w-full h-screen p-3 bg-gray-200">
-          <!-- <Topbar yourdata={yourdata} /> -->
+          <Topbar yourdata={yourdata} />
           <div class="h-full mt-5 overflow-y-auto">
             <slot ></slot>
           </div>
